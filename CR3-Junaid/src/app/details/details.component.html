@@ -1,0 +1,50 @@
+<div class="detail-view d-flex w-75 mx-auto m-5 border">
+
+    <section class="w-50 bg-light">
+        <img class="dish-image w-100" src="{{plate.image}}" alt="picture of {{plate.name}}">
+        <div class="p-3">
+            <h1>{{plate.name}}</h1>
+            <div class="d-flex justify-content-between">
+                <p class="fs-5">{{plate.price | currency:"EUR"}}</p>
+                <button type="button" class="btn btn-light order-now" (click)="addToCart()">Order now</button>
+            </div>
+        </div>
+    </section>
+    <section class="w-50 p-3">
+        <h3>Whats inside:</h3>
+        <p>{{plate.ingredients.join(", ")}}</p>
+        <h3>Allergy info:</h3>
+        <article class="d-flex justify-content-center gap-5">
+
+            <div *ngIf="plate.allergyInfo.includes('vegetarian')">
+                <img src="./assets/svg/vegetarian.svg" alt="symbol for vegetarian, a carrot">
+                <p>Vegetarian</p>
+            </div>
+
+            <div *ngIf="plate.allergyInfo.includes('lactose')">
+                <img src="./assets/svg/lactose.svg" alt="symbol for lactose, milk tetra pak">
+                <p>contains Lactose</p>
+                <input type="radio" id="lactose" name="contains-lactose">
+                <label class="ms-3" for="lactose">order lactose-free version</label>
+            </div>
+
+            <div *ngIf="plate.allergyInfo.includes('gluten')">
+                <img src="./assets/svg/gluten.svg" alt="symbol for gluten, wheat">
+                <p>contains Gluten</p>
+                <input type="radio" id="gluten" name="contains-gluten">
+                <label class="ms-3" for="gluten">order gluten-free version</label>
+            </div>
+
+            <div *ngIf="plate.allergyInfo.includes('meat')">
+                <img src="./assets/svg/meat.svg" alt="symbol for meat, a cow">
+                <p>Antibiotic-free Beef</p>
+            </div>
+
+            <div *ngIf="plate.allergyInfo.includes('fish')">
+                <img src="./assets/svg/fish.svg" alt="symbol for fish">
+                <p>Sustainable fishing</p>
+            </div>
+
+        </article>
+    </section>
+</div>

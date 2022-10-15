@@ -1,0 +1,70 @@
+#hero {
+    background-image: url("/assets/img/hero.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 40vh;
+    background-color: rgba(61, 61, 61, 0.643);
+    background-blend-mode: multiply;
+}
+
+#hero h1 {
+    font-weight: normal
+}
+
+h1 {
+    font-family: 'Great Vibes', cursive;
+    font-weight: bold;
+    text-align: center;
+}
+
+ul {
+    list-style-position: inside;
+}
+
+ol {
+    counter-reset: item;
+    list-style-type: none;
+}
+
+.why_-us{
+   background-image: url("/assets/img/main-bg.jpg");
+}
+
+.why_us li {
+    display: block;
+
+}
+
+
+
+h5 {
+    font-weight: bold;
+}
+
+/* --------------- media queries --------------- */
+
+/* large */
+@media screen and (max-width: 1199px) {
+    #img-rest {
+        width: 40vw
+    }
+}
+
+/* medium */
+@media screen and (max-width: 991px) {
+    #img-rest {
+        width: 100%
+    }
+
+    .rest-main {
+        width: 75vw
+    }
+}
+
+/* small and x-small */
+@media screen and (max-width: 767px) {
+    .rest-main {
+        width: 95vw
+    }
+}

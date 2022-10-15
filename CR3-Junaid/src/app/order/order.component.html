@@ -1,0 +1,85 @@
+<section class="d-flex gap-4 justify-content-center my-5">
+    <table class="table w-50 border">
+        <thead class="table-light">
+            <tr>
+                <th scope="col" colspan="4">Cart -
+                    <ng-template [ngIf]="cartItems.length === 0" [ngIfElse]="amount">
+                        <span>no item(s)</span>
+                    </ng-template>
+                    <ng-template #amount>
+                        <span>{{cartItems.length}} item(s)</span>
+                    </ng-template>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of cartItems">
+                <td scope="row"><img src="{{item.image}}" class="w-75"></td>
+                <td>
+                    <p class="fw-bold">{{item.name}}</p>
+                    <p>{{item.ingredients.join(", ")}}</p>
+                </td>
+                <td class="fw-bold">Price: {{item.price | currency:"EUR"}}</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <table class="table table-borderless w-25 border align-self-start">
+        <thead class="table-light border-bottom">
+            <tr>
+                <th scope="col" colspan="2">Summary</th>
+
+            </tr>
+        </thead>
+        <tbody class="p-2">
+            <tr>
+                <td scope="row" class="pt-3 pb-0">Products</td>
+                <td class="pt-3 pb-0">{{totalProd | currency:"EUR"}}</td>
+            </tr>
+            <tr>
+                <td scope="row" class="pt-0">Service</td>
+                <td class="pt-0">{{service | currency:"EUR"}}</td>
+            </tr>
+            <tr>
+                <td scope="row">Discount</td>
+                <td>{{discount | currency:"EUR"}}</td>
+            </tr>
+            <tr>
+                <td scope="row" colspan="2" class="py-0">
+                    <hr>
+                </td>
+
+            </tr>
+            <tr class="fw-bold">
+                <td scope="row" class="pt-0 pb-4">Total amount (including VAT)</td>
+                <td class="pt-0 pb-4">{{totalSum | currency:"EUR"}}</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<section class="w-75 mx-auto mt-5">
+    <h1>Order Form</h1>
+    <p>Please enter the required info for delivery</p>
+    <hr>
+    <form [formGroup]="checkOutForm" (ngSubmit)="onPurchase()" class="d-flex flex-column">
+        <label for="name" class="form-label">
+            Name
+            <input class="form-control" type="text" id="name" formControlName="name">
+        </label>
+        <label for="address" class="form-label">
+            Address
+            <input class="form-control" type="text" id="address" formControlName="address">
+        </label>
+        <label for="phone" class="form-label">
+            Phone
+            <input class="form-control" type="tel" id="phone" formControlName="phone">
+        </label>
+        <label for="email" class="form-label">
+            Email
+            <input class="form-control" type="email" id="email" formControlName="email">
+        </label>
+        <button class="btn mt-2 mb-5" type="submit">Purchase</button>
+    </form>
+</section>

@@ -1,0 +1,29 @@
+.risto {
+    font-family: 'Great Vibes', cursive;
+    font-weight: bold;
+    text-align: center;
+}
+
+p {
+    font-style: italic;
+}
+
+/* large */
+@media screen and (max-width: 1199px) {
+    img {
+        width: 50vw
+    }
+}
+
+h1 {
+    font-family: 'Great Vibes', cursive;
+    font-weight: bold;
+}
+
+
+/* small and x-small */
+@media screen and (max-width: 767px) {
+   img {
+        width: 70vw;
+    }
+}

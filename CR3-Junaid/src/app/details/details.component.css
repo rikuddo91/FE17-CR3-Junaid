@@ -1,0 +1,21 @@
+article label {
+    color: #95322A;
+    font-weight: bold
+}
+
+article div{
+    text-align: center
+}
+
+details{
+    background-color: grey;
+}
+
+img:not(.dish-image){
+    width: 10vw
+}
+
+button{
+    background-color: #95322A;
+    color: white
+}
